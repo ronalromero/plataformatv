@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Plataforma TV</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/shop-item.css" rel="stylesheet">
+	
+	<script>
+		// Funcion que se ejecuta cada vez que se selecciona un radio button
+		function abrirPagina()
+		{
+			var porNombre=document.getElementsByName("canal");
+			var url="";
+ 
+			// Recorremos todos los valores del radio button para encontrar el
+			// seleccionado
+			for(var i=0;i<porNombre.length;i++)
+			{
+				if(porNombre[i].checked)
+					url=porNombre[i].value;
+			}
+ 
+			// Cambiarmos la url al iframe
+			document.getElementById("miIframe").src=url
+		}
+ 
+		window.onload=function()
+		{
+			var elemento=document.getElementsByName("canal");
+ 
+			// Creamos el evento click para cada clic en todos los radio button
+			if (elemento[0].addEventListener)
+			{
+				// Para todos los navegadores que siguen los estándares
+				for(var i=0;i<elemento.length;i++)
+					elemento[i].addEventListener("click", abrirPagina, false);
+			}else{
+				// Como no, para nuestro amigo Microsoft...
+				// Ellos siempre ayudando a los desarrolladores...
+				for(var i=0;i<elemento.length;i++)
+					elemento[0].attachEvent("onclick", abrirPagina);
+			}
+		}
+	</script>
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Plataforma TV</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+	
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-3">
+          <h1 class="my-4">Categorias</h1>
+		  <div class="list-group">
+			
+			<a href="#" class="list-group-item">Interacionales</a>
+			<div class="list-group-item">
+				<input type= "radio" name="canal" value="http://televisionlibre.net/canal/fox-en-vivo/embed.html"> Fox <br>
+				<input type= "radio" name="canal" value="http://player.latino-webtv.com/channels/fox.html"> Fox-op2 <br>	
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/fox-life-en-vivo/"> FoxLife <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/fox-premium-action-en-vivo/"> FoxAction <br>
+				<input type= "radio" name="canal" value="http://photocall.x10host.com/hls?vid=photocall.x10host.com/8Pr1x2dlVY/kr?ch=FOXACTION_HD"> FoxAction-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/fox-premium-movies-en-vivo/"> FoxMovies-op2 <br>
+				<input type= "radio" name="canal" value="http://player.latino-webtv.com/channels/foxmovies.html"> FoxMovies-op2 <br>
+				<input type= "radio" name="canal" value="http://televisionlibre.net/canal/fx-en-vivo/embed.html"> FX <br>
+				<input type= "radio" name="canal" value="http://player.latino-webtv.com/channels/fx.html"> FX-op2 <br>	
+				<input type= "radio" name="canal" value="http://player.latino-webtv.com/channels/fxmovies.html"> FXM <br>	
+				<input type= "radio" name="canal" value="http://televisionlibre.net/canal/space-en-vivo/embed.html"> Space <br>
+				<input type= "radio" name="canal" value="http://player.latino-webtv.com/channels/space.html"> Space-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/hbo-en-vivo/"> HBO-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/hbo-2-en-vivo/"> HBO2-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/hbo-plus-en-vivo/"> HBOPLUS-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/hbo-family-en-vivo/"> HBOFAMILY-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/hbo-signature-en-vivo/"> HBOSIGNATURE-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/hbo-pop-en-vivo/"> HBOPOP-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/hbo-xtreme-en-vivo/"> HBOXTREME-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/cinemax-en-vivo/"> Cinemax-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/axn-en-vivo/"> AXN-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/ae-en-vivo/"> A&E-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/tnt-en-vivo/"> TNT-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/amc-en-vivo/"> AMC-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/syfy-en-vivo/"> Syfy <br>
+				<input type= "radio" name="canal" value="http://player.latino-webtv.com/channels/Studio-Universal.html"> Studio Universal-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/universal-channel-en-vivo/"> Universal Channel-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/warner-channel-en-vivo/"> Warner-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/cinecanal-en-vivo/"> Cinecanal-op2 <br>
+				<input type= "radio" name="canal" value="http://player.latino-webtv.com/channels/sony.html"> Sony-op2 <br>
+				<input type= "radio" name="canal" value="http://player.latino-webtv.com/channels/tbs.html"> TBS-op2 <br>
+				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/mtv-en-vivo/"> MTV-op2 <br>
+				<input type= "radio" name="canal" value="http://player.latino-webtv.com/channels/golden.html"> Golden Plus-op2 <br>
+					
+			</div>
+			
+	  </div>
+	  </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+          <div class="card mt-4">
+		  <div class="embed-responsive embed-responsive-16by9">	  
+		  <iframe id="miIframe" class="embed-responsive-item" src="" allowfullscreen></iframe>
+		  </div>
+			<div class="card-body">
+              <h3 class="card-title">En vivo</h3>
+              <p class="card-text">Plataforma interactiva que sintoniza canales nacionales (Ecuador), internacionales (Cable) y de otros paises para entretenimiento personal y familiar!</p>
+              <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+              4.0 stars
+            </div>
+		  </div>
+		  
+		 </div>
+        <!-- /.col-lg-9 -->
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; RMRC 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

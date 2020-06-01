@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Plataforma TV</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!--js modal-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="http://jwpsrv.com/library/XpMfzFwiEeOfZhIxOQfUww.js"></script>
+	<!--video-->
+	<link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
+	
+	<script type="text/javascript">
+		// Funcion que se ejecuta cada vez que se selecciona un radio button
+		function abrirPagina()
+		{
+			var porNombre=document.getElementsByName("canal");
+			var url="";
+ 
+			// Recorremos todos los valores del radio button para encontrar el
+			// seleccionado
+			for(var i=0;i<porNombre.length;i++)
+			{
+				if(porNombre[i].checked)
+					url=porNombre[i].value;
+			}
+ 
+			// Cambiarmos la url al iframe
+			document.getElementById("miIframe").src=url
+		}
+ 
+		window.onload=function()
+		{
+			var elemento=document.getElementsByName("canal");
+	
+			// Creamos el evento click para cada clic en todos los radio button
+			if (elemento[0].addEventListener)
+			{
+				
+				// Para todos los navegadores que siguen los estándares
+				for(var i=0;i<elemento.length;i++)
+					elemento[i].addEventListener("click", abrirPagina, false);
+				
+			}else{
+				// Como no, para nuestro amigo Microsoft...
+				// Ellos siempre ayudando a los desarrolladores...
+				for(var i=0;i<elemento.length;i++)
+					elemento[0].attachEvent("onclick", abrirPagina);
+			}
+		}
+	</script>
+  </head>
+
+  <body>
+	
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Plataforma TV</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav><br><br>
+	
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <h1 class="my-4">Categorias</h1>
+		  <div class="list-group">
+			
+			<a href="#" class="list-group-item">Nacionales</a>
+			<div class="list-group-item" class="custom-control custom-radio">
+				<input type= "radio" name="canal" value="https://www.dailymotion.com/embed/video/x7u0ryc?queue-enable=false&autoplay=1"> Ecuavisa <br>
+				<input type= "radio" name="canal" value="http://blixtv.com/stream/ecuavisa.htm"> Ecuavisa-op2 <br>
+				<input name="canal"  value="" type="radio" onClick="MyWindow=window.open('http://www.rts.com.ec/envivo','MyWindow','height=1000px,width=1000px,toolbar=yes'); return false;"> RTS </input><br>
+				<input type= "radio" name="canal" value="https://blixtv.com/stream/rts.htm"> RTS-op2 <br>
+				
+				<input name="canal"  value="" type="radio" onClick="MyWindow=window.open('http://www.teleamazonas.com/teleamazonas-en-vivo/','MyWindow','height=1000px,width=1000px,toolbar=yes'); return false;"> Teleamazonas </input><br>
+				
+				<input type= "radio" name="canal" value="http://blixtv.com/stream/teleamazonas.htm"> Teleamazonas-op2 <br>
+				<input type= "radio" name="canal" value="https://livestream.com/accounts/27228685/events/8710465/player?width=640&height=360&enableInfoAndActivity=true&autoPlay=true&mute=false"> EcuadorTv <br>
+					
+				<!-- Popup REPRODUCTOR TV -->
+				<!--popup-->
+				<input type="radio" name="canal" data-toggle="modal" data-target=".bd-tc-modal-lg" style="z-index: 1;"> TC </input><br>
+					<div id="modaltc" class="modal fade bd-tc-modal-lg stopVideo()" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div id="ModalDialog" class="modal-dialog modal-lg">
+					  <div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle"></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="modal-body">
+				
+							<video id='hls-tc' class="video-js vjs-default-skin" width="720" height="480" controls>
+								<source type="application/x-mpegURL" src="https://5d4837686f698.streamlock.net/tctelevision/tctelevision/playlist.m3u8">
+							</video>
+							
+							</div>
+						</div>	
+					  </div>
+					</div>
+					</div>
+
+				<!-- JS code -->
+				<!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+				<script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
+				<script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+
+				<script>
+				var player = videojs('hls-tc');
+				player.play();
+				</script>
+					
+					<script>
+					$('#modaltc').on('hide.bs.modal', function () {
+						var player = videojs('hls-tc');
+						player.pause();
+					})
+					<!--function stopVideo() {var player = videojs('hls-oromar');	player.pause();}-->
+					</script>
+				
+				<!--<input type="radio" name="canal" data-toggle="modal" data-target=".bd-tc-modal-lg" style="z-index: 1;"> TC </input><br>
+					<div id="modaltc" class="modal fade bd-tc-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+					  <div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle"></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="modal-body" id="reproductor_wrapper">
+								<div id="reproductor_wrapper">
+								<object type="application/x-shockwave-flash" data="http://p.jwpcdn.com/6/12/jwplayer.flash.swf" width="100%" height="100%" bgcolor="#000000" id="reproductor" name="reproductor" tabindex="0">
+								<param name="allowfullscreen" value="true">
+								<param name="allowscriptaccess" value="always">
+								<param name="seamlesstabbing" value="true">
+								<param name="wmode" value="opaque">
+								</object>
+								<div id="reproductor_aspect"></div>
+								<div id="reproductor_jwpsrv"></div>
+								
+								<script>// <![CDATA[
+								jwplayer('reproductor').setup({
+								//URL m3u8 que queremos reproducir
+								file: "https://5d4837686f698.streamlock.net/tctelevision/tctelevision/playlist.m3u8",
+								width: "700",
+								skin: "five",
+								height: "400",
+								aspectratio: "16:9",
+								image: "",
+								logo: {
+								file: "",
+								position: 'top-right',
+								margin: '0',
+								link: ""
+								},
+								stretching: "fill",
+								autostart: "true",
+								abouttext: '',
+								aboutlink: '',
+								});
+								if (getLang == "") {
+									lang = 1;
+								}
+								jwplayer().on('play', function(e) {
+								  jwplayer().setCurrentAudioTrack(lang);
+								});
+								// ]]></script>
+								</div>
+						</div>
+					  </div>
+					</div>
+					</div>
+					</div>
+					
+				<script>
+				$('#modaltc').on('hide.bs.modal', function () {
+					jwplayer().pause();
+				})
+				</script>-->
+				
+				
+				<input name="canal"  value="" type="radio" onClick="MyWindow=window.open('http://www.tvc.com.ec/envivo','MyWindow','height=1000px,width=1000px,toolbar=yes'); return false;"> TVC </input><br>
+				<input type= "radio" name="canal" value="http://blixtv.com/stream/canal-uno.htm"> Canal1 <br>
+				<input type= "radio" name="canal" value="http://www.canelatv.com/pc.html"> CanelaTV <br>
+				
+				<!--popup-->
+				<input type="radio" name="canal" data-toggle="modal" data-target=".bd-oromar-modal-lg" style="z-index: 1;"> OromarTV </input><br>
+					<div id="modaloromar" class="modal fade bd-oromar-modal-lg stopVideo()" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div id="ModalDialog" class="modal-dialog modal-lg">
+					  <div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle"></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="modal-body">
+				
+							<video id='hls-oromar' class="video-js vjs-default-skin" width="720" height="480" controls>
+								<source type="application/x-mpegURL" src="http://190.52.205.146:8082/hls/oromartv_hi/index.m3u8">
+							</video>
+							
+							</div>
+						</div>	
+					  </div>
+					</div>
+					</div>
+
+				<!-- JS code -->
+				<!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+				<script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
+				<script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+
+				<script>
+				var player = videojs('hls-oromar');
+				player.play();
+				</script>
+					
+					<script>
+					$('#modaloromar').on('hide.bs.modal', function () {
+						var player = videojs('hls-oromar');
+						player.pause();
+					})
+					<!--function stopVideo() {var player = videojs('hls-oromar');	player.pause();}-->
+					</script>
+							
+					
+					
+				<!--popup-->
+				<input type="radio" name="canal" data-toggle="modal" data-target=".bd-centroec-modal-lg" style="z-index: 1;"> CentroEcuador </input><br>
+					<div id="modalCE" class="modal fade bd-centroec-modal-lg stopVideo()" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div id="ModalDialog" class="modal-dialog modal-lg">
+					  <div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle"></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="modal-body">
+				
+							<video id='hls-CE' class="video-js vjs-default-skin" width="720" height="480" controls>
+								<source type="application/x-mpegURL" src="https://streannlive-lh.akamaihd.net/i/RadioCentroQuito_1@189794/index_1_av-p.m3u8?sd=10&set-segment-duration=smoothest&rebase=on&hdntl=exp=1590875016~acl=*~data=hdntl~hmac=07b9102a43e8e10197fa52b8cf75c564b284288e928e8b2b8a0d461443d3861f">
+							</video>
+							
+							</div>
+						</div>	
+					  </div>
+					</div>
+					</div>
+
+				<!-- JS code -->
+				<!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+				<script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
+				<script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+
+				<script>
+				var player = videojs('hls-CE');
+				player.play();
+				</script>
+					
+					<script>
+					$('#modalCE').on('hide.bs.modal', function () {
+						var player = videojs('hls-CE');
+						player.pause();
+					})
+					<!--function stopVideo() {var player = videojs('hls-oromar');	player.pause();}-->
+					</script>
+			</div>
+		  </div>
+		</div>
+        <!-- /.col-lg-3 -->
+		
+        <div class="col-lg-9">
+		<div class="card mt-4">
+			<div class="embed-responsive embed-responsive-16by9">	  
+				<iframe id="miIframe" class="embed-responsive-item" allowtransparency="true" src="" allowfullscreen></iframe>
+			</div>
+			</div>
+				<div class="card-body">
+					<h3 class="card-title">En vivo</h3>
+					<p class="card-text">Plataforma interactiva que sintoniza canales nacionales (Ecuador), internacionales (Cable) y de otros paises para entretenimiento personal y familiar!</p>
+					<span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+					4.0 stars
+				</div>
+			</div>
+		 </div>
+        <!-- /.col-lg-9 -->
+        </div>
+
+    </div>
+    <!-- /.container -->
+	
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; RMRC 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <noscript> 
+  </body>
+
+</html>
+</noscript> 

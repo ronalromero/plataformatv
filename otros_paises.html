@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Plataforma TV</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!--js modal-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="http://jwpsrv.com/library/XpMfzFwiEeOfZhIxOQfUww.js"></script>
+	<!--video-->
+	<link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
+	
+	<script>
+		// Funcion que se ejecuta cada vez que se selecciona un radio button
+		function abrirPagina()
+		{
+			var porNombre=document.getElementsByName("canal");
+			var url="";
+ 
+			// Recorremos todos los valores del radio button para encontrar el
+			// seleccionado
+			for(var i=0;i<porNombre.length;i++)
+			{
+				if(porNombre[i].checked)
+					url=porNombre[i].value;
+			}
+ 
+			// Cambiarmos la url al iframe
+			document.getElementById("miIframe").src=url
+		}
+ 
+		window.onload=function()
+		{
+			var elemento=document.getElementsByName("canal");
+ 
+			// Creamos el evento click para cada clic en todos los radio button
+			if (elemento[0].addEventListener)
+			{
+				// Para todos los navegadores que siguen los estándares
+				for(var i=0;i<elemento.length;i++)
+					elemento[i].addEventListener("click", abrirPagina, false);
+			}else{
+				// Como no, para nuestro amigo Microsoft...
+				// Ellos siempre ayudando a los desarrolladores...
+				for(var i=0;i<elemento.length;i++)
+					elemento[0].attachEvent("onclick", abrirPagina);
+			}
+		}
+	</script>
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Plataforma TV</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav><br><br>
+	
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-3">
+          <h1 class="my-4">Categorias</h1>
+		  <div class="list-group">
+			
+			<a href="#" class="list-group-item">Otros_Paises</a>
+			<div class="list-group-item">
+				<b><label>PERU</label><br></b>
+				<input type= "radio" name="canal" value="http://photocall.tv/cG5n/cls?vid=//pe-atv-atv-live.ned.media/atv/atv.smil/.m3u8?iut=eyJwYXJhbXMiOnsiZXhwIjoxNTkwODY5MjY1LCJzZXNzaW9uIjoiMTgxLjE5OS40NS4yMDAiLCJ3aGl0ZWxpc3QiOlsiMTgxLjE5OS40NS4yMDAiXX0sInNpZ25hdHVyZSI6IjA1Njg4MDFkMDc4OTNhODFiMTE5OTcxMzE5ZjFjMDJjYjQ5ODAyZDIifQ=="> ATV <br>
+				<input type= "radio" name="canal" value="http://photocall.tv/americatv"> AmericaTV<br>
+				
+				
+				<!--popup-->
+				<input type="radio" name="canal" data-toggle="modal" data-target=".bd-top-modal-lg" style="z-index: 1;"> TOP LATINO </input><br>
+					<div id="modaltop" class="modal fade bd-top-modal-lg stopVideo()" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div id="ModalDialog" class="modal-dialog modal-lg">
+					  <div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle"></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="modal-body">
+				
+							<video id='hls-top' class="video-js vjs-default-skin" width="720" height="480" controls>
+								<source type="application/x-mpegURL" src="http://173.236.60.186:1935/livetv/latinoSD.stream/playlist.m3u8">
+							</video>
+							
+							</div>
+						</div>	
+					  </div>
+					</div>
+					</div>
+
+				<!-- JS code -->
+				<!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+				<script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
+				<script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+
+				<script>
+				var player = videojs('hls-top');
+				player.play();
+				</script>
+					
+					<script>
+					$('#modaltop').on('hide.bs.modal', function () {
+						var player = videojs('hls-top');
+						player.pause();
+					})
+					</script>
+				
+				<b><label>COLOMBIA</label><br></b>
+				<input type= "radio" name="canal" value="http://tv.jaffmisshwedd.com/channels/caracol.html"> Caracol <br>
+				<!--<input type= "radio" name="canal" value="http://photocall.tv/cG5n/l1?ch=rcn"> RCN <br>-->
+				
+				<!--popup-->
+				<input type="radio" name="canal" data-toggle="modal" data-target=".bd-rcn-modal-lg" style="z-index: 1;"> RCN </input><br>
+					<div id="modalrcn" class="modal fade bd-rcn-modal-lg stopVideo()" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div id="ModalDialog" class="modal-dialog modal-lg">
+					  <div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle"></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="modal-body">
+				
+							<video id='hls-rcn' class="video-js vjs-default-skin" width="720" height="480" controls>
+								<source type="application/x-mpegURL" src="https://rcnhd.cdn.net.co/live01/rcnhd_720p.m3u8">
+							</video>
+							
+							</div>
+						</div>	
+					  </div>
+					</div>
+					</div>
+
+				<!-- JS code -->
+				<!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+				<script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
+				<script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+
+				<script>
+				var player = videojs('hls-rcn');
+				player.play();
+				</script>
+					
+					<script>
+					$('#modalrcn').on('hide.bs.modal', function () {
+						var player = videojs('hls-rcn');
+						player.pause();
+					})
+					</script>
+				
+				<b><label>CHILE</label><br></b>
+				<input type= "radio" name="canal" value="https://www.youtube.com/embed/FYGcmSK2tmg?autoplay=1"> MEGA <br>
+				<input type= "radio" name="canal" value="https://www.youtube.com/embed/yyo2VX85Dh0?list=PLkfDvCJpWUh32xHI_aPXLSNDQZQ2JcGEO"> LaRed <br>
+				<b><label>ARGENTINA</label><br></b>
+				<input type= "radio" name="canal" value="https://www.youtube.com/embed/1ZlNSpqWSRQ?autoplay=1"> ElTrece <br>
+				
+				<!--popup-->
+				<!--<input type="radio" name="canal" data-toggle="modal" data-target=".bd-trece-modal-lg" style="z-index: 1;"> ElTrece-op2 </input><br>
+					<div id="modaltrece" class="modal fade bd-trece-modal-lg stopVideo()" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div id="ModalDialog" class="modal-dialog modal-lg">
+					  <div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle"></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="modal-body">
+				
+							<video id='hls-trece' onclick="stopVideo" class="video-js vjs-default-skin" width="720" height="480" controls>
+								<source type="application/x-mpegURL" src="https://video-weaver.mia02.hls.ttvnw.net/v1/playlist/CrAE5tL9ZMfr8ZbVLUvY8mEXF5fFIIloPoOVJthYPB8osBHQGycw-fnFx6S3u9LYfMKvb-phi0nrxtoTFuKD8-kKz9-DRDByEb5Vx04r0HSeI1WF_ZR_qPVQto0IvKJAL93LJrmzbIOzRr8ioDVF-iagjEKrYu1xCV6fhpmO13zjH9XtndT4q0bH5vU6ZNFtGLGfo4gtAxCZizKZAUsetzzGelFgiB05QCniXHv0sDqxGKA5rI_bMwKy8lOBFICjXQ00KIYjwEavr-SbEhDqjKnPU3KA7j1_NKWT24WbeEt4RwSgzzWqvCPJo91mMnmhpl0qU7Yo1f3jXuDYutqIHbLe67h-glIz06aoR1xrwMsfucAp7P-uZ50WO1Wh_5Jzv830-TD-OnZ0o84n8f0YftuaYCgfpk1l-0GjpSMc3SHPIjBy3TT7R8jqIjmkmW8aV-jMdGrbvoKyFMKr4Pbe3GZT7q09Og44WuR9e8jIZb-mon6bWZgZSc7f3abm9K1OKHZ589LNuPfb3B3hm4xHj4oybik8nQA6azIYunfODu83AwZodVsxcf3PX25uUhPa3AJZdC8yWfXFjyMG02SuQCa3zXfkK8_Ja4CGIsHD2q_xvN0uRr4e6ftP6dgvISfMKVQC36lBQQ98Ks53T8KcasqhwxdQAS-R8bj3m4tP7Vi7SxWZeP_TStxGf04vHVYtYbdQ2O0z0iFbLE-0ByJ4QSOtFFP3R_RPlbXUs48-okNKMkgSEAif0czajybpapyushSXnBcaDBvefHtgaNvnQicr-A.m3u8">
+							</video>
+							
+							</div>
+						</div>	
+					  </div>
+					</div>
+					</div>
+
+				<!-- JS code -->
+				<!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+				<!--<script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
+				<script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+
+				<script>
+				var player = videojs('hls-trece');
+				player.play();
+				</script>
+					
+					<script>
+					$('#modaltrece').on('hide.bs.modal', function () {
+						var player = videojs('hls-trece');
+						player.pause();
+					})
+					</script>-->
+				
+				<input name="canal"  value="" type="radio" onClick="MyWindow=window.open('https://www.elnueve.com.ar/en-vivo/','MyWindow','height=1000px,width=1000px,toolbar=yes'); return false;"> Elnueve </input><br>
+								
+				<b><label>GUATEMALA</label><br></b>
+				<input name="canal"  value="" type="radio" onClick="MyWindow=window.open('https://www.chapintv.com/envivo','MyWindow','height=1000px,width=1000px,toolbar=yes'); return false;"> ChapinTV </input><br>
+				<b><label>USA-MEXICO</label><br></b>
+				<input type= "radio" name="canal" value=""> Telemundo <br>
+				<input type= "radio" name="canal" value=""> Univision <br>
+				<input type= "radio" name="canal" value=""> EstrellaTV <br>
+				
+				
+			</div>
+			
+	  </div>
+	  </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+			<div class="card mt-4">
+				<div class="embed-responsive embed-responsive-16by9">	  
+					<iframe id="miIframe" class="embed-responsive-item" src="" allowfullscreen></iframe>
+				</div>
+			
+			<div class="card-body">
+              <h3 class="card-title">En vivo</h3>
+				<p class="card-text">Plataforma interactiva que sintoniza canales nacionales (Ecuador), internacionales (Cable) y de otros paises para entretenimiento personal y familiar!</p>
+					<span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+					4.0 stars
+            </div>
+			</div>
+		 </div>
+        <!-- /.col-lg-9 -->
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; RMRC 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
