@@ -1,2 +1,2 @@
 # plataformatv
-# esta en un pagina web streaming
+Esta es una pagina web streaming
