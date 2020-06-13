@@ -165,13 +165,13 @@
 
 				<script>
 				var player = videojs('hls-rcn');
-				player.pause();
+				player.start();
 				</script>
 					
 					<script>
 					$('#modalrcn').on('hide.bs.modal', function () {
 						var player = videojs('hls-rcn');
-						player.pause();
+						player.stop();
 					})
 					</script>
 				
