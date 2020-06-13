@@ -119,13 +119,13 @@
 
 				<script>
 				var player = videojs('hls-top');
-				player.start();
+				player.pause();
 				</script>
 					
 					<script>
 					$('#modaltop').on('hide.bs.modal', function () {
 						var player = videojs('hls-top');
-						player.stop();
+						player.pause();
 					})
 					</script>
 				
@@ -165,13 +165,13 @@
 
 				<script>
 				var player = videojs('hls-rcn');
-				player.start();
+				player.pause();
 				</script>
 					
 					<script>
 					$('#modalrcn').on('hide.bs.modal', function () {
 						var player = videojs('hls-rcn');
-						player.stop();
+						player.pause();
 					})
 					</script>
 				
