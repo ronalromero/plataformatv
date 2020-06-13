@@ -124,15 +124,14 @@
 
 				<script>
 				var player = videojs('hls-tc');
-				player.pause();
+				player.start();
 				</script>
 					
 					<script>
 					$('#modaltc').on('hide.bs.modal', function () {
 						var player = videojs('hls-tc');
-						player.pause();
+						player.stop();
 					})
-					<!--function stopVideo() {var player = videojs('hls-oromar');	player.pause();}-->
 					</script>
 				
 				<!--<input type="radio" name="canal" data-toggle="modal" data-target=".bd-tc-modal-lg" style="z-index: 1;"> TC </input><br>
@@ -202,9 +201,51 @@
 				<input type= "radio" name="canal" value="https://blixtv.com/stream/canal-uno.htm"> Canal1 <br>
 				<input type= "radio" name="canal" value="http://www.canelatv.com/pc.html"> CanelaTV <br>
 				
-				<!--popup-->
-				<input type="radio" name="canal" data-toggle="modal" data-target=".bd-oromar-modal-lg" style="z-index: 1;"> OromarTV </input><br>
+	    			<!--popup-->
+				<input type="radio" name="canal" data-toggle="modal" data-target=".bd-oromar-modal-lg" style="z-index: 1;"> OromarTv </input><br>
 					<div id="modaloromar" class="modal fade bd-oromar-modal-lg stopVideo()" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div id="ModalDialog" class="modal-dialog modal-lg">
+					  <div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle"></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="modal-body">
+							
+							<video id='hls-oromar' class="video-js vjs-default-skin container" width="720" height="480" controls>
+								<source type="application/x-mpegURL" src="http://190.52.205.146/hls/oromartv_hi/index.m3u8">
+							</video>
+							
+							</div>
+						</div>	
+					  </div>
+					</div>
+					</div>
+
+				<!-- JS code -->
+				<!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+				<script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
+				<script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+
+				<script>
+				var player = videojs('hls-oromar');
+				player.start();
+				</script>
+					
+					<script>
+					$('#modaloromar').on('hide.bs.modal', function () {
+						var player = videojs('hls-oromar');
+						player.stop();
+					})
+					</script>
+	    			
+				<!--popup-->
+				<!--input type="radio" name="canal" data-toggle="modal" data-target=".bd-oromar-modal-lg" style="z-index: 1;"> OromarTV </input><br>
+					<div id="modaloromar" class="modal fade bd-oromar-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 					<div id="ModalDialog" class="modal-dialog modal-lg">
 					  <div class="modal-content">
 						<div class="modal-header">
@@ -232,18 +273,17 @@
 				<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
 				<script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
 
-				<script>
+				<!--<script>
 				var player = videojs('hls-oromar');
-				player.pause();
+				player.start();
 				</script>
 					
 					<script>
 					$('#modaloromar').on('hide.bs.modal', function () {
 						var player = videojs('hls-oromar');
-						player.pause();
+						player.stop();
 					})
-					<!--function stopVideo() {var player = videojs('hls-oromar');	player.pause();}-->
-					</script>
+					</script>-->
 							
 					
 					
