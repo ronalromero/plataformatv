@@ -119,13 +119,13 @@
 
 				<script>
 				var player = videojs('hls-top');
-				player.pause();
+				player.start();
 				</script>
 					
 					<script>
 					$('#modaltop').on('hide.bs.modal', function () {
 						var player = videojs('hls-top');
-						player.pause();
+						player.stop();
 					})
 					</script>
 				
