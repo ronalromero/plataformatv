@@ -251,8 +251,8 @@
 					
 					
 				<!--popup-->
-				<input type="radio" name="canal" data-toggle="modal" data-target=".bd-centroec-modal-lg" style="z-index: 1;"> CentroEcuador </input><br>
-					<div id="modalCE" class="modal fade bd-centroec-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				<input type="radio" name="canal" data-toggle="modal" data-target=".bd-rtu-modal-lg" style="z-index: 1;"> RTU </input><br>
+					<div id="modalrtu" class="modal fade bd-rtu-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 					<div id="ModalDialog" class="modal-dialog modal-lg">
 					  <div class="modal-content">
 						<div class="modal-header">
@@ -264,8 +264,8 @@
 						<div class="modal-body">
 							<div class="modal-body">
 				
-							<video id='hls-CE' class="video-js vjs-default-skin container" width="720" height="480" controls>
-								<source type="application/x-mpegURL" src="https://streannlive-lh.akamaihd.net/i/RadioCentroQuito_1@189794/index_1_av-p.m3u8?sd=10&set-segment-duration=smoothest&rebase=on&hdntl=exp=1590875016~acl=*~data=hdntl~hmac=07b9102a43e8e10197fa52b8cf75c564b284288e928e8b2b8a0d461443d3861f">
+							<video id='hls-rtu' class="video-js vjs-default-skin container" width="720" height="480" controls>
+								<source type="application/x-mpegURL" src="https://59c3c7bda15f4.streamlock.net:444/rtutv/smil:rtutv.smil/playlist.m3u8">
 							</video>
 							
 							</div>
@@ -282,16 +282,18 @@
 				<script src="https://vjs.zencdn.net/7.8.2/video.js"></script>
 
 				<script>
-				var player = videojs('hls-CE');
+				var player = videojs('hls-rtu');
 				player.pause();
 				</script>
 					
 					<script>
-					$('#modalCE').on('hide.bs.modal', function () {
-						var player = videojs('hls-CE');
+					$('#modalrtu').on('hide.bs.modal', function () {
+						var player = videojs('hls-rtu');
 						player.pause();
 					})
 					</script>
+	
+				<input name="canal"  value="" type="radio" onClick="MyWindow=window.open('http://centroecuador.ec/tv-radio/','MyWindow','height=1000px,width=1000px,toolbar=yes'); return false;"> CentroEcuador </input><br>
 				<input type= "radio" name="canal" value="https://livestream.com/accounts/8069167/events/9185088/player?width=640&height=360&enableInfoAndActivity=true&defaultDrawer=&autoPlay=true&mute=false"> VitoTV <br>
 			</div>
 		  </div>
