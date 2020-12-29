@@ -121,55 +121,6 @@
 				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/mtv-en-vivo/"> MTV <br>
 				<input type= "radio" name="canal" value="http://player.latino-webtv.com/channels/golden.html"> Golden Plus <br>
 				
-				
-				<iframe allow="encrypted-media" width="100%" height="100%" src="http://212.102.60.121:8000/live/calem7/4BY4CSaMUW/1098.m3u8" id="iframe" name="iframe" frameborder="1" scrolling="no" allowfullscreen="">
-				</iframe>
-				
-				<!-- Popup REPRODUCTOR TV -->
-				<!--popup-->
-				<input type="radio" name="canal" data-toggle="modal" data-target=".bd-goltv-modal-lg" style="z-index: 1;"> Goltv </input><br>
-					<div id="modalgoltv" class="modal fade bd-goltv-modal-lg stopVideo()" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-					<div id="ModalDialog" class="modal-dialog modal-lg">
-					  <div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLongTitle"></h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<div class="modal-body">
-							
-							<video id='hls-goltv' class="video-js vjs-default-skin container" width="720" height="480" controls>
-								<source type="application/x-mpegURL" src="http://212.102.60.121:8000/live/calem7/4BY4CSaMUW/1098.m3u8">
-							</video>
-							
-							</div>
-						</div>	
-					  </div>
-					</div>
-					</div>
-
-				<!-- JS code -->
-				<!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
-				<!--<script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>-->
-	      			<script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
-				<script src="https://vjs.zencdn.net/7.8.2/video.js"></script>
-
-				<script>
-				var player = videojs('hls-goltv');
-				player.pause();
-				</script>
-					
-					<script>
-					$('#modalgoltv').on('hide.bs.modal', function () {
-						var player = videojs('hls-goltv');
-						player.pause();
-					})
-					</script>
-				
-				
 			</div>
 			
 	  </div>
