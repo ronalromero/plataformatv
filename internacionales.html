@@ -107,7 +107,52 @@
 				<input type= "radio" name="canal" value="" onClick="MyWindow=window.open('https://televisionlibre.net/embed/drmplayer.html?get=aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jMmxpdmUvVEJTL1NBX0xpdmVfZGFzaF9lbmNfMkEvVEJTLm1wZA==&10','MyWindow','height=1000px,width=1000px,toolbar=yes'); return false;"> TBS <br>
 				<input type= "radio" name="canal" value="https://televisionlibre.net/canal/mtv-en-vivo/"> MTV <br>
 				<input type= "radio" name="canal" value="http://player.latino-webtv.com/channels/golden.html"> Golden Plus <br>
+				
+				<!-- Popup REPRODUCTOR TV -->
+				<!--popup-->
+				<input type="radio" name="canal" data-toggle="modal" data-target=".bd-goltv-modal-lg" style="z-index: 1;"> Goltv </input><br>
+					<div id="modalgoltv" class="modal fade bd-goltv-modal-lg stopVideo()" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div id="ModalDialog" class="modal-dialog modal-lg">
+					  <div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle"></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="modal-body">
+							
+							<video id='hls-goltv' class="video-js vjs-default-skin container" width="720" height="480" controls>
+								<source type="application/x-mpegURL" src="http://212.102.60.121:8000/live/calem7/4BY4CSaMUW/1098.m3u8">
+							</video>
+							
+							</div>
+						</div>	
+					  </div>
+					</div>
+					</div>
+
+				<!-- JS code -->
+				<!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+				<!--<script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>-->
+	      			<script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
+				<script src="https://vjs.zencdn.net/7.8.2/video.js"></script>
+
+				<script>
+				var player = videojs('hls-goltv');
+				player.pause();
+				</script>
 					
+					<script>
+					$('#modalgoltv').on('hide.bs.modal', function () {
+						var player = videojs('hls-goltv');
+						player.pause();
+					})
+					</script>
+				
+				
 			</div>
 			
 	  </div>
@@ -118,7 +163,7 @@
 
           <div class="card mt-4">
 		  <div class="embed-responsive embed-responsive-16by9">	  
-		  <iframe id="miIframe" class="embed-responsive-item" scrolling="no" src="" allowfullscreen></iframe>
+		  <iframe id="miIframe" class="embed-responsive-item" src="" allowfullscreen></iframe>
 		  </div>
 			<div class="card-body">
               <h3 class="card-title">En vivo</h3>
